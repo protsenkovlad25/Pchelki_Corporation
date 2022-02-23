@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="Pchelki_Corporation.View.Add.AWork"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pchelki_Corporation.View.Add"
+             xmlns:vm="clr-namespace:Pchelki_Corporation.ViewModels.Controllers"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="200">
+
+    <UserControl.DataContext>
+        <vm:AddController/>
+    </UserControl.DataContext>
+
+    <Grid Background="#ffffe0">
+        <StackPanel>
+            <TextBlock  HorizontalAlignment="Center" Text="Название работы" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13"/>
+            <TextBox    HorizontalAlignment="Center" Height="25" Width="180" Text="{Binding WName}"/>
+            <TextBlock  HorizontalAlignment="Center" Text="Тип работы" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13"/>
+            <ComboBox   HorizontalAlignment="Center" Height="25" Width="180" ItemsSource="{Binding TypeWorkName}" SelectedItem="{Binding WTypeWork}"/>
+            <Button     HorizontalAlignment="Center" Content="Добавить" Width="80" Height="25" FontSize="13" Margin="0,10,0,0" Command="{Binding CreateWork}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

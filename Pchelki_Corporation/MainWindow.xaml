@@ -1,0 +1,68 @@
+﻿<Window x:Class="Pchelki_Corporation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pchelki_Corporation"
+        xmlns:vm="clr-namespace:Pchelki_Corporation.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800">
+
+    <Window.DataContext>
+        <vm:ViewController/>
+    </Window.DataContext>
+    
+    <Grid Background="#ffffe0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Menu Grid.ColumnSpan="2" Grid.Row="0" FontFamily="Arial" Background="LightGray" Height="20" VerticalAlignment="Center">
+            <MenuItem Header="Справочники" Height="20">
+                <MenuItem Header="Продукты"       Command="{Binding OpenFrame}" CommandParameter="Product"/>
+                <MenuItem Header="Пасеки"         Command="{Binding OpenFrame}" CommandParameter="BeeGarden"/>
+                <MenuItem Header="Типы пчёлок"    Command="{Binding OpenFrame}" CommandParameter="TypeBee"/>
+                <MenuItem Header="Типы ульев"     Command="{Binding OpenFrame}" CommandParameter="TypeBeehive"/>
+                <MenuItem Header="Болезни"        Command="{Binding OpenFrame}" CommandParameter="Disease"/>
+                <MenuItem Header="Лечения"        Command="{Binding OpenFrame}" CommandParameter="Healing"/>
+                <MenuItem Header="Признаки"       Command="{Binding OpenFrame}" CommandParameter="Sign"/>
+                <MenuItem Header="Тип работы"     Command="{Binding OpenFrame}" CommandParameter="TypeWork"/>
+                <MenuItem Header="Работы"         Command="{Binding OpenFrame}" CommandParameter="Work"/>
+                <MenuItem Header="Должности"      Command="{Binding OpenFrame}" CommandParameter="Post"/>
+                <MenuItem Header="Инструменты"    Command="{Binding OpenFrame}" CommandParameter="Equipment"/>
+                <MenuItem Header="Комнаты"        Command="{Binding OpenFrame}" CommandParameter="Room"/>
+                <MenuItem Header="ПродуктыПродаж" Command="{Binding OpenFrame}" CommandParameter="ProductSold"/>
+                <MenuItem Header="Клиенты"        Command="{Binding OpenFrame}" CommandParameter="Client"/>
+            </MenuItem>
+            <MenuItem Header="Добавление" Height="20">
+                <MenuItem Header="Сотрудник">
+                    <MenuItem Header="Просмотр/Добавить" Command="{Binding OpenFrame}" CommandParameter="Employee"/>
+                    <MenuItem Header="CотрДолж" Command="{Binding OpenFrame}" CommandParameter="EmployeePost"/>
+                </MenuItem>
+                <MenuItem Header="Семейство">
+                    <MenuItem Header="Просмотр/Добавить" Command="{Binding OpenFrame}" CommandParameter="Family"/>
+                </MenuItem>
+                <MenuItem Header="Табель работ">
+                    <MenuItem Header="Просмотр/Добавить" Command="{Binding OpenFrame}" CommandParameter="Tabel"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Лечение">
+                <MenuItem Header="П/Д Заболевших"   Command="{Binding OpenFrame}" CommandParameter="Sick"/>
+                <MenuItem Header="Признаки Болезни" Command="{Binding OpenFrame}" CommandParameter="SignDisease"/>
+                <MenuItem Header="Лечение Болезни"  Command="{Binding OpenFrame}" CommandParameter="HealingDisease"/>
+            </MenuItem>
+            <MenuItem Header="Продажа" Height="20">
+                <MenuItem Header="Просмотр продаж" Command="{Binding OpenFrame}" CommandParameter="Sale"/>
+            </MenuItem>
+        </Menu>
+
+        <ContentControl Grid.Row="1" Grid.Column="0" Content="{Binding ViewLeft}"/>
+        <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding ViewRight}"/>
+    </Grid>
+</Window>

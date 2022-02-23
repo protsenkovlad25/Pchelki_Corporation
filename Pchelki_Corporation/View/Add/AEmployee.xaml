@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Pchelki_Corporation.View.Add.AEmployee"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pchelki_Corporation.View.Add" 
+             xmlns:vm="clr-namespace:Pchelki_Corporation.ViewModels.Controllers"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="200">
+
+    <UserControl.DataContext>
+        <vm:AddController/>
+    </UserControl.DataContext>
+    
+    <Grid Background="#ffffe0">
+        <ScrollViewer>
+            <StackPanel>
+                <TextBlock  HorizontalAlignment="Center" Text="Фамилия" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13"/>
+                <TextBox    HorizontalAlignment="Center" Height="25" Width="180" Text="{Binding ESecondName}"/>
+                <TextBlock  HorizontalAlignment="Center" Text="Имя" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13"/>
+                <TextBox    HorizontalAlignment="Center" Height="25" Width="180" Text="{Binding EFirstName}"/>
+                <TextBlock  HorizontalAlignment="Center" Text="Отчество" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13"/>
+                <TextBox    HorizontalAlignment="Center" Height="25" Width="180" Text="{Binding EFatherName}"/>
+                <TextBlock  HorizontalAlignment="Center" Text="Дата рождения" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13"/>
+                <DatePicker HorizontalAlignment="Center" SelectedDate="{Binding EDateBirth}"/>
+                <TextBlock  HorizontalAlignment="Center" Text="Телефон" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13"/>
+                <TextBox    HorizontalAlignment="Center" Height="25" Width="180" Text="{Binding EPhoneNumber}"/>
+                <TextBlock  HorizontalAlignment="Center" Text="Email" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13"/>
+                <TextBox    HorizontalAlignment="Center" Height="25" Width="180" Text="{Binding EEmail}"/>
+                <TextBlock  HorizontalAlignment="Center" Text="Город" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13"/>
+                <TextBox    HorizontalAlignment="Center" Height="25" Width="180" Text="{Binding ETown}"/>
+                <TextBlock  HorizontalAlignment="Center" Text="Улица" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13"/>
+                <TextBox    HorizontalAlignment="Center" Height="25" Width="180" Text="{Binding EStreet}"/>
+                <TextBlock  HorizontalAlignment="Center" Text="Дом" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13"/>
+                <TextBox    HorizontalAlignment="Center" Height="25" Width="180" Text="{Binding EHome}"/>
+                <TextBlock  HorizontalAlignment="Center" Text="Должность" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13"/>
+                <ComboBox   HorizontalAlignment="Center" Height="25" Width="180" ItemsSource="{Binding PostName}" SelectedItem="{Binding EPost}"/>
+                <Button     HorizontalAlignment="Center" Content="Добавить" Width="80" Height="25" FontSize="13" Margin="0,10,0,0" Command="{Binding CreateEmployee}"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
